@@ -1,8 +1,10 @@
-<!-- TOC -->autoauto- [go types](#go-types)auto    - [string](#string)auto    - [slice and array](#slice-and-array)auto    - [map](#map)auto    - [struct](#struct)auto    - [type conversion](#type-conversion)auto    - [pass by value vs pass by pointer](#pass-by-value-vs-pass-by-pointer)auto- [go control structure](#go-control-structure)auto    - [switch case](#switch-case)auto    - [for loop](#for-loop)autoauto<!-- /TOC -->
+<!-- TOC -->autoauto- [golang](#golang)auto    - [go types](#go-types)auto        - [string](#string)auto        - [slice and array](#slice-and-array)auto        - [map](#map)auto        - [struct](#struct)auto        - [type conversion](#type-conversion)auto        - [pass by value vs pass by pointer](#pass-by-value-vs-pass-by-pointer)auto    - [go control structure](#go-control-structure)auto    - [switch case](#switch-case)auto    - [for loop](#for-loop)autoauto<!-- /TOC -->
 
-# go types
+# golang
 
-## string
+## go types
+
+### string
 
 - compare
 
@@ -73,7 +75,7 @@ strings.TrimPrefix(str, prefix string) string
 strings.TrimSuffix(str, suffix string) string
 ```
 
-## slice and array
+### slice and array
 
 - initialize slice
 
@@ -122,7 +124,7 @@ mynewslice = append(mynewslice, "hello")
 mynewslice = append(mynewslice, myslice[index:]...)
 ```
 
-## map
+### map
 
 - initialize map
 
@@ -175,7 +177,7 @@ delete(myset, "lan")
 
 ```
 
-## struct
+### struct
 
 ```bash
 type mystruct struct{
@@ -184,7 +186,7 @@ type mystruct struct{
 }
 ```
 
-## type conversion
+### type conversion
 
 ```bash
 i := 115
@@ -192,13 +194,13 @@ b := (byte)(i)
 s := (string)(i)
 ```
 
-## pass by value vs pass by pointer
+### pass by value vs pass by pointer
 
 - slice,map etc is always passed by pointer(any modification will also modify the original copy)
 - array, string, struct is always passed by value(if you have a large struct or array, pass by pointer of the array/struct can save the copy)
 
 
-# go control structure
+## go control structure
 
 ## switch case
 
