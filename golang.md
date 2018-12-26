@@ -1,5 +1,5 @@
-<!-- TOC -->autoauto- [golang](#golang)auto    - [go types](#go-types)auto        - [string](#string)auto        - [slice and array](#slice-and-array)auto        - [map](#map)auto        - [struct](#struct)auto        - [type conversion](#type-conversion)auto        - [pass by value vs pass by pointer](#pass-by-value-vs-pass-by-pointer)auto    - [go control structure](#go-control-structure)auto    - [switch case](#switch-case)auto    - [for loop](#for-loop)autoauto<!-- /TOC -->
 
+<!-- TOC -->autoauto- [golang](#golang)auto    - [go types](#go-types)auto        - [string](#string)auto        - [slice and array](#slice-and-array)auto        - [map](#map)auto        - [struct](#struct)auto        - [type conversion](#type-conversion)auto        - [pass by value vs pass by pointer](#pass-by-value-vs-pass-by-pointer)auto    - [go control structure](#go-control-structure)auto    - [switch case](#switch-case)auto    - [for loop](#for-loop)autoauto<!-- /TOC -->
 # golang
 
 ## go types
