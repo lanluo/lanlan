@@ -1,10 +1,26 @@
+<!-- vscode-markdown-toc -->
+* 1. [go types](#gotypes)
+	* 1.1. [string](#string)
+	* 1.2. [slice and array](#sliceandarray)
+	* 1.3. [map](#map)
+	* 1.4. [struct](#struct)
+	* 1.5. [type conversion](#typeconversion)
+	* 1.6. [pass by value vs pass by pointer](#passbyvaluevspassbypointer)
+* 2. [go control structure](#gocontrolstructure)
+	* 2.1. [switch case](#switchcase)
+	* 2.2. [for loop](#forloop)
 
-<!-- TOC -->autoauto- [golang](#golang)auto    - [go types](#go-types)auto        - [string](#string)auto        - [slice and array](#slice-and-array)auto        - [map](#map)auto        - [struct](#struct)auto        - [type conversion](#type-conversion)auto        - [pass by value vs pass by pointer](#pass-by-value-vs-pass-by-pointer)auto    - [go control structure](#go-control-structure)auto    - [switch case](#switch-case)auto    - [for loop](#for-loop)autoauto<!-- /TOC -->
+<!-- vscode-markdown-toc-config
+	numbering=true
+	autoSave=true
+	/vscode-markdown-toc-config -->
+<!-- /vscode-markdown-toc -->
+
 # golang
 
-## go types
+##  1. <a name='gotypes'></a>go types
 
-### string
+###  1.1. <a name='string'></a>string
 
 - compare
 
@@ -75,7 +91,7 @@ strings.TrimPrefix(str, prefix string) string
 strings.TrimSuffix(str, suffix string) string
 ```
 
-### slice and array
+###  1.2. <a name='sliceandarray'></a>slice and array
 
 - initialize slice
 
@@ -124,7 +140,7 @@ mynewslice = append(mynewslice, "hello")
 mynewslice = append(mynewslice, myslice[index:]...)
 ```
 
-### map
+###  1.3. <a name='map'></a>map
 
 - initialize map
 
@@ -177,7 +193,7 @@ delete(myset, "lan")
 
 ```
 
-### struct
+###  1.4. <a name='struct'></a>struct
 
 ```bash
 type mystruct struct{
@@ -186,7 +202,7 @@ type mystruct struct{
 }
 ```
 
-### type conversion
+###  1.5. <a name='typeconversion'></a>type conversion
 
 ```bash
 i := 115
@@ -194,15 +210,15 @@ b := (byte)(i)
 s := (string)(i)
 ```
 
-### pass by value vs pass by pointer
+###  1.6. <a name='passbyvaluevspassbypointer'></a>pass by value vs pass by pointer
 
 - slice,map etc is always passed by pointer(any modification will also modify the original copy)
 - array, string, struct is always passed by value(if you have a large struct or array, pass by pointer of the array/struct can save the copy)
 
 
-## go control structure
+##  2. <a name='gocontrolstructure'></a>go control structure
 
-## switch case
+###  2.1. <a name='switchcase'></a>switch case
 
 'case' block in 'switch' statement break by default, it has a break implicitly,so no need to add break again
 
@@ -221,7 +237,7 @@ default:
 }
 ```
 
-## for loop
+###  2.2. <a name='forloop'></a>for loop
 
 ```bash
 shouldContinue := true
