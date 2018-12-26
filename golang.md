@@ -265,3 +265,132 @@ for index := range myslice/myarray/mystring {
     b = mystring[index]
 }
 ```
+
+### methods in sort pkg
+
+- sort.Ints(a []int)
+- sort.Strings(a []string)
+- sort.IntsAreSorted(a []int) bool
+- sort.StringsAreSorted(a []string) bool
+
+```bash
+myslice := []int{3, 5, 1, 6, 2}
+if !sort.IntsAreSorted(myslice){
+    sort.Ints(myslice)
+}
+
+myslice := []string{"hell","abc", "cathy"}
+if !sort.StringsAreSorted(myslice){
+    sort.Strings(myslice)
+}
+```
+
+- sort.SearchInts(a []int, n int) int
+- sort.SearchStrings(s []string, str string) int
+
+```bash
+index := sort.SearchStrings(myslice, "hell")
+if index != -1{
+   fmt.Println(myslice[index])
+}
+```
+
+- sort via reverse order
+
+```bash
+myslice := []int{11,2,5,3,4,7,1}
+intSlice := IntSlice(myslice)
+sort.Sort(intSlice)
+sort.Sort(sort.Reverse(intSlice))
+
+myslice := []string{"hell", "cathy", "aria"}
+stringSlice := StringSlice(myslice)
+sort.Sort(stringSlice)
+sort.Sort(sort.Reverse(stringSlice))
+```
+
+### sort with custom comparator using sort.Slice/sort.SliceStable
+
+- func Slice(slice interface{}, less func(i, j int) bool)
+- func SliceStable(slice interface{}, less func(i, j int) bool)
+
+```bash
+people := []myStruct{
+    {age: 4, name: "lucas"},
+    {age: 8, name: "aria"},
+}
+
+sort.Slice(people, func(i, j int) bool { return people[i].name < people[j].name})
+sort.SliceStable(people, func(i, j int) bool{ people[i].age < people[j].age})
+```
+
+### sort with custom data struct using Interface
+
+- type Interface(anything implemented Interface can be sorted)
+  - StringSlice / IntSlice already implemented this Interface
+  - sort.Sort(**)
+  - sort.Stable(**)
+
+```bash
+type Interface interface{
+    // Len is the number of elements in the collection.
+    Len() int
+    // Less reports whether the element with index i should sort before the element with index j.
+    Less(i, j int) bool
+    // Swap swaps the elements with indexes i and j.
+    Swap(i, j int)
+}
+```
+
+```bash
+type myStruct struct {
+	age  int
+	name string
+}
+
+type byAge []myStruct
+
+func (a byAge) Less(i, j int) bool {
+	return a[i].age < a[j].age
+}
+
+func (a byAge) Len() int {
+	return len(a)
+}
+
+func (a byAge) Swap(i, j int) {
+	a[i], a[j] = a[j], a[i]
+}
+
+func main() {
+	people := make([]myStruct, 2)
+	people[0] = myStruct{age: 14, name: "lucas"}
+	people[1] = myStruct{name: "aria", age: 8}
+	fmt.Println(people)
+	sort.Stable(byAge(people))
+	fmt.Println(people)
+}
+```
+
+### sort map by key or value
+
+- map is an unordered collection of k-v pairs
+- range over a map returns in randomized order
+
+```bash
+mymap := map[string]int{ "alice": 2,"aria": 8,"lucas", 4}
+
+keys := make([]string, 0)
+values := make([]int, 0)
+for k, v := range mymap{
+    keys = append(keys, k)
+    values = append(values, v)
+}
+
+sort.Strings(keys)
+sort.Ints(values)
+
+for _, key := range keys{
+    fmt.Printf(mymap[key])
+}
+```
