@@ -9,6 +9,10 @@
 * 2. [go control structure](#gocontrolstructure)
 	* 2.1. [switch case](#switchcase)
 	* 2.2. [for loop](#forloop)
+	* 2.3. [methods in sort pkg](#methodsinsortpkg)
+	* 2.4. [sort with custom comparator using sort.Slice/sort.SliceStable](#sortwithcustomcomparatorusingsort.Slicesort.SliceStable)
+	* 2.5. [sort with custom data struct using Interface](#sortwithcustomdatastructusingInterface)
+	* 2.6. [sort map by key or value](#sortmapbykeyorvalue)
 
 <!-- vscode-markdown-toc-config
 	numbering=true
@@ -215,7 +219,6 @@ s := (string)(i)
 - slice,map etc is always passed by pointer(any modification will also modify the original copy)
 - array, string, struct is always passed by value(if you have a large struct or array, pass by pointer of the array/struct can save the copy)
 
-
 ##  2. <a name='gocontrolstructure'></a>go control structure
 
 ###  2.1. <a name='switchcase'></a>switch case
@@ -266,7 +269,7 @@ for index := range myslice/myarray/mystring {
 }
 ```
 
-### methods in sort pkg
+###  2.3. <a name='methodsinsortpkg'></a>methods in sort pkg
 
 - sort.Ints(a []int)
 - sort.Strings(a []string)
@@ -309,7 +312,7 @@ sort.Sort(stringSlice)
 sort.Sort(sort.Reverse(stringSlice))
 ```
 
-### sort with custom comparator using sort.Slice/sort.SliceStable
+###  2.4. <a name='sortwithcustomcomparatorusingsort.Slicesort.SliceStable'></a>sort with custom comparator using sort.Slice/sort.SliceStable
 
 - func Slice(slice interface{}, less func(i, j int) bool)
 - func SliceStable(slice interface{}, less func(i, j int) bool)
@@ -324,7 +327,7 @@ sort.Slice(people, func(i, j int) bool { return people[i].name < people[j].name}
 sort.SliceStable(people, func(i, j int) bool{ people[i].age < people[j].age})
 ```
 
-### sort with custom data struct using Interface
+###  2.5. <a name='sortwithcustomdatastructusingInterface'></a>sort with custom data struct using Interface
 
 - type Interface(anything implemented Interface can be sorted)
   - StringSlice / IntSlice already implemented this Interface
@@ -372,7 +375,7 @@ func main() {
 }
 ```
 
-### sort map by key or value
+###  2.6. <a name='sortmapbykeyorvalue'></a>sort map by key or value
 
 - map is an unordered collection of k-v pairs
 - range over a map returns in randomized order
